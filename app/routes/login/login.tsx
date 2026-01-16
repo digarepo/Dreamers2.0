@@ -1,43 +1,3 @@
-
-// export async function action({ request }: { request: Request }) {
-//   const formData = await request.formData();
-//   const username = formData.get("username") as string;
-//   const password = formData.get("password") as string;
-
-//   const { login, setAuthCookie } = await import("~/services/auth.server");
-
-//   const user = await login(username, password);
-//   if (!user) {
-   
-//     return { error: "Invalid username or password" };
-//   }
-
-//   // Role-based redirect
-//   let redirectTo = "/";
-//   if (["ADMIN", "MASTER_ENCODER", "SHAREHOLDER_ENCODER"].includes(user.role)) {
-//     redirectTo = "/sample";
-//   } else if (user.role === "DEPOSIT_ENCODER") {
-//     redirectTo = "/deposit";
-//   } else if (user.role === "AUDITOR") {
-//     redirectTo = "/reports";
-//   }else if (user.role === "ATTENDANCE_ENCODER") {
-//     redirectTo = "/attendance"; 
-//   }
-
-//   return new Response(null, {
-//     status: 302,
-//     headers: {
-//       Location: redirectTo,
-//       "Set-Cookie": setAuthCookie(user),
-//     },
-//   });
-// }
-
-
-// export default function Login() {
-//   return null;
-// }
-// app/routes/login.tsx
 export async function action({ request }: { request: Request }) {
   const formData = await request.formData();
   const username = formData.get("username") as string;
@@ -103,7 +63,10 @@ export default function LoginPage() {
             Login
           </button>
         </form>
-
+            
+        <p className="mt-8 text-center  text-gray-600">
+          <a href="/forgot-password" className="text-green-600 hover:underline">Forgot Password</a>
+        </p>
         {/* Back to Home */}
         <p className="mt-8 text-center text-gray-600">
           <a href="/" className="text-green-700 hover:underline">Back to Home</a>
